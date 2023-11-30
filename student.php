@@ -4,92 +4,96 @@
         <title></title>
     </head>
     <style>
-        *
-        {
-            margin: 0;
-            padding: 0;
-        }
-        .main
-        {
-            width: 100%;
-            background-position: center;
-            background-size: cover;
-            background-image:url("dbg.jpg");
-            height:128vh;
-        }
-        .navbar
-        {
-            width: 1200px;
-            height:75px;
-            margin: auto;
-            
-        }
-        .icon
-        {
-            width:350px;
-            height:70px;
-            float:left;
-         
-        }
-        .logo
-        {
-            color: rgb(154,195,223);
-            font-size: 22px;
-            font-family: arial;
-            padding-left: 18px;
-            float: left ;
-            padding-top: 25px;
-            font-weight: bold;
-        }
-        .menu
-        {
-            width: 460px;
-            float: left;
-            height: 70px;
-            margin-left: 180px;
-        }
-        ul
-        {
-            float: left;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-        ul li
-        {
-            list-style: none;
-            margin-left: 70px;
-            margin-top: 27px;
-            font-size: 20px;
-        } 
-        ul li a
-        {
-            text-decoration: none;
-            color: white;
-            font-family: Arial;
-            font-weight: bold;
-            transition: 0.4s ease-in-out;    
-        }
-        ul li a:hover
-        {
-            color: rgb(154,195,223);
-        }
-        .abc
+          *
+            {
+                margin: 0;
+                padding: 0;
+            }
+            .main
+            {
+                width: 100%;
+                background-position: center;
+                background-size: cover;
+                background-image:url("dbg.jpg");
+                height:105vh;
+            }
+            .navbar
+            {
+                width: 100%;
+                height:75px;
+                margin: auto;
+
+            }
+            .icon
+            {
+                width:350px;
+                height:70px;
+                float:left;
+
+            }
+            .logo
+            {
+                color: rgb(154,195,223);
+                font-size: 22px;
+                font-family: arial;
+                padding-left: 18px;
+                float: left ;
+                padding-top: 25px;
+                font-weight: bold;
+            }
+            .menu
+            {
+                width: 500px;
+                float: left;
+                height: 70px;
+                margin-left: 100px;
+            }
+            ul
+            {
+                float: left;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+            ul li
+            {
+                list-style: none;
+                padding:20px;
+                margin-top: 7px;
+                font-size: 20px;
+            } 
+            ul li a
+            {
+                text-decoration: none;
+                color: white;
+                font-family: Arial;
+                font-weight: bold;
+                transition: 0.4s ease-in-out;    
+            }
+            ul li a:hover
+            {
+                color: rgb(154,195,223);
+            }
+      
+       .abc
         {
             height: 34px;
             width: 185px;
-            margin-left: 585px;
+            margin-left: 390px;
             border-radius: 23px;
         }
+       
         .sub
         {
             height: 34px;
             width: 85px;
             border-radius: 23px;
+              margin-right: 160px;
         }
         .sub:hover
         {
             background-color: rgb(154,195,223);
+           
         }
         </style>
     <body>
@@ -113,7 +117,7 @@
             <br><br><br><br>
             <div class="box">
                 <form action="stshowmark.php" method="POST">
-                <label style="font-family: Arial;font-weight: bold;font-size:24px;margin-left: 520px;">Student Register Number</label>
+                <label style="font-family: Arial;font-weight: bold;font-size:24px;margin-left: 390px;">Student Register Number</label>
                 <br><br><br><br>
                 <input type="text" placeholder=" Enter Register Number" required="Please Enter your Register Number" name="rnum" class="abc">    
                 <br><br><br><br>

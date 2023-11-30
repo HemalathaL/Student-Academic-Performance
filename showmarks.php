@@ -4,109 +4,127 @@
         <title></title>
     </head>
     <style>
-        *
+       *
+            {
+                margin: 0;
+                padding: 0;
+            }
+            .main
+            {
+                width: 100%;
+                background-position: center;
+                background-size: cover;
+                background-image:url("dbg.jpg");
+                height:105vh;
+            }
+            .navbar
+            {
+                width: 100%;
+                height:75px;
+                margin: auto;
+
+            }
+            .icon
+            {
+                width:300px;
+                height:70px;
+                float:left;
+
+
+            }
+            .logo
+            {
+                color: rgb(154,195,223);
+                font-size: 18px;
+                font-family: arial;
+                padding-left: 18px;
+                float: left ;
+                padding-top: 25px;
+                font-weight: bold;
+            }
+            .menu
+            {
+                width: 350px;
+                float: left;
+                height: 70px;
+                
+            }
+            ul
+            {
+                float: left;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+            ul li
+            {
+                list-style: none;
+                padding:20px;
+                margin-top: 7px;
+                font-size: 16px;
+                margin-left: 10px;
+            } 
+            ul li a
+            {
+                text-decoration: none;
+                color: white;
+                font-family: Arial;
+                font-weight: bold;
+                transition: 0.4s ease-in-out;    
+            }
+            ul li a:hover
+            {
+                color: rgb(154,195,223);
+            }
+        .img
         {
-            margin: 0;
-            padding: 0;
-        }
-        .main
-        {
-            width: 100%;
             background-position: center;
+            background-image: url("bg.jpg");
             background-size: cover;
-            background-image:url("dbg.jpg");
-            height:128vh;
-        }
-        .navbar
-        {
-            width: 1200px;
-            height:75px;
-            margin: auto;
+            height: 435px;
             
         }
-        .icon
+        .content
         {
-            width:350px;
-            height:70px;
-            float:left;
-         
-        }
-        .logo
-        {
-            color: rgb(154,195,223);
-            font-size: 22px;
-            font-family: arial;
-            padding-left: 18px;
-            float: left ;
-            padding-top: 25px;
-            font-weight: bold;
-        }
-        .menu
-        {
-            width: 450px;
-            float: left;
-            height: 70px;
-            margin-left: 250px;
-        }
-        ul
-        {
-            float: left;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-        ul li
-        {
-            list-style: none;
-            margin-left: 40px;
-            margin-top: 27px;
-            font-size: 20px;
-        } 
-        ul li a
-        {
-            text-decoration: none;
-            color: white;
-            font-family: Arial;
-            font-weight: bold;
-            transition: 0.4s ease-in-out;    
-        }
-        ul li a:hover
-        {
-            color: rgb(154,195,223);
+            font-family:Arial;
+            color:white;
+            font-size: 23px;
+            text-align: center;
+            padding :55px;
         }
         table
-        {
-            font-family: verdana,Geneva,Tahoma,sans-serif;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
+          {
+            font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            width: 1100px;
-            height: 200px;
-            box-shadow:2px 2px 12px;
-            border: 2px solid #bdc3c7;
-        }
-        th td
+             width: 800px;
+            height: 100px;
+           margin-left: 85px;
+          }
+        .box td, .box th 
         {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-            
+          border: 1px solid #ddd;
+          padding: 8px;
         }
-        tr
+
+        .box tr:nth-child(even)
         {
-            text-align: center;
+            background-color: #f2f2f2;
         }
-        th
+
+        .box tr:hover 
         {
-            background-color: #1B98E08C;
-            text-align: center;
+            background-color: #ddd;
         }
-        tr:hover
+
+        .box th 
         {
-            background-color: #1B98E01A;
-            transform: scale(1.01);
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+
+          color: white;
+           background-color: #1B98E08C;
+           
         }
         </style>
     <body>
@@ -126,430 +144,52 @@
                 </div>
             </div>
             <br><br>
-            <center><p style="font-family: Arial;font-weight: bold;text-shadow:2px 2px red;font-size: 28px;">SHOW STAFF</p></center>
+            <center><p style="font-family: Arial;font-weight: bold;text-shadow:2px 2px red;font-size: 28px;">SHOW MARKS</p></center>
 <?php
 $conn=mysqli_connect('localhost','root','','college');
 if($conn)
 {
     $sname=$_POST['sname'];
-    if($sname == "Priya")
-    {
-        $query="select * from viewmark where Name='Priya'";
+        $query="select * from viewmark where Name='$sname'";
         $result=mysqli_query($conn,$query);
         $num_row=  mysqli_num_rows($result);
         if($num_row>0)
         {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
+            echo'<table class= "box">';
+                    echo '<th>NAME</th>';
+                    echo '<th>REGISTER NUMBER</th>';
+                    echo '<th>Python Lab</th>';
+                    echo '<th>Python Theory</th>';
+                    echo '<th>CO Lab</th>';
+                    echo '<th>CO Theory</th>';
+                    echo '<th>Java Lab</th>';
+                    echo '<th>Java Theory</th>';
+                    echo '<th>Web Lab</th>';
+                    echo '<th>Web Theory</th>';
             while ($row=  mysqli_fetch_assoc($result))
             {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
+                 echo '<tr>';
+                 echo '<td>'.$row['Name'].'</td>';
+                 echo '<td>'.$row['RegisterNumber'].'</td>';
+                 echo '<td>'.$row['PythonLab'].'</td>';
+                 echo '<td>'.$row['PythonTheory'].'</td>';
+                 echo '<td>'.$row['CoLab'].'</td>';
+                 echo '<td>'.$row['COTheory'].'</td>';
+                 echo '<td>'.$row['JavaLab'].'</td>';
+                 echo '<td>'.$row['JavaTheory'].'</td>';
+                 echo '<td>'.$row['WebLab'].'</td>';
+                 echo '<td>'.$row['WebTheory'].'</td>';
+                  echo '</tr>';
             }
             echo '</table>';
 
         }
         
     }
-    elseif($sname == "Tanya")
-    {
-        $query="select * from viewmark where Name='Tanya'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Priyanka")
-    {
-        $query="select * from viewmark where Name='Priyanka'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Tanvi")
-    {
-        $query="select * from viewmark where Name='Tanvi'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }   
-    }
-    elseif($sname == "Ishita")
-    {
-        $query="select * from viewmark where Name='Ishita'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Vani")
-    {
-        $query="select * from viewmark where Name='Vani'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Anjali")
-    {
-        $query="select * from viewmark where Name='Anjali'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Shreya")
-    {
-        $query="select * from viewmark where Name='Shreya'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Riya")
-    {
-        $query="select * from viewmark where Name='Riya'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Sneha")
-    {
-        $query="select * from viewmark where Name='Sneha'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-
-        }
-        
-    }
-    elseif($sname == "Aishwarya")
-    {
-        $query="select * from viewmark where Name='Aishwarya'";
-        $result=mysqli_query($conn,$query);
-        $num_row=  mysqli_num_rows($result);
-        if($num_row>0)
-        {
-            echo'<table>';
-            echo '<th>NAME</th>';
-            echo '<th>REGISTER NUMBER</th>';
-            echo '<th>EXAM</th>';
-            echo '<th>ENGLISH</th>';
-            echo '<th>TAMIL</th>';
-            echo '<th>MATHS</th>';
-            echo '<th>SCIENCE</th>';
-            echo '<th>SOCIAL</th>';
-            echo '<th>RESULT</th>';
-            echo '<th>TOTAL</th>';
-            while ($row=  mysqli_fetch_assoc($result))
-            {
-                echo '<tr>';
-                echo '<td>'.$row['Name'].'</td>';
-                echo '<td>'.$row['RegisterNumber'].'</td>';
-                echo '<td>'.$row['Exam'].'</td>';
-                echo '<td>'.$row['English'].'</td>';
-                echo '<td>'.$row['Tamil'].'</td>';
-                echo '<td>'.$row['Maths'].'</td>';
-                echo '<td>'.$row['Science'].'</td>';
-                echo '<td>'.$row['Social'].'</td>';
-                echo '<td>'.$row['Result'].'</td>';
-                echo '<td>'.$row['Total'].'</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-        }
-    }
+   
     else
     {
          echo "<script value='text/javascript'>alert('Invalid Name !!');location='Viewmarks.php';</script>";
     }
-}
+
 ?>
